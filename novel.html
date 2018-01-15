@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf8">
+		<title>ノベルゲーム</title>
+		
+		<style>
+		#novelwindow{
+			border: 1px solid gray;
+			width: 800px;
+			height: 600px;
+			
+			background-image: url(image/earth.jpg);
+			background-size: 800px 600px;
+		}
+		
+		#message{
+			position: absolute;
+			top: 350px;
+			left: 75px;
+			
+			border: 1px solid blue;
+			background-color: rgba(45, 248, 255, 0.7);
+			width: 650px;
+			height: 200px;
+			
+			font-size: 24pt;
+			padding: 5px;
+		}
+		
+		#char1{
+			position: relative;
+			height: 600px;
+			
+		}
+		
+		</style>
+		
+	</head>
+	<body>
+	
+		<div id = "novelwindow">
+			<img id = "char1" src = "f270.png">
+		
+			<div id = "message">
+				ぐギャギャグオーン
+			</div>
+		
+		</div>
+		
+		<script>
+			//シナリオの定義
+			var scenario = [
+				["TXT", "ドゥゴゴォォォーーーン！"],
+				["TXT", "ズギャギャギュギューーン"],
+				["CHAR", "f216.png"]
+			];
+			
+			var msg = document.querySelector("#message");
+			var char1 = document.querySelector("#char1");
+			var i = 0;
+			
+			msg.addEventListener("click", function(){
+				var command = scenario[i][0];
+				var value = scenario[i][1];
+				
+				switch(command){
+					case "TXT":
+					msg.innerHTML = value;
+					break;
+					case "CHAR":
+					char1.setAttribute("src", value);
+					break;
+				}
+				
+				i++;
+			});
+		</script>
+	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
